@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:sizer/sizer.dart';
 import '../../widgets/custom_app_bar.dart';
+import '../../widgets/custom_bottom_bar.dart';
 
 class GeneralMapScreen extends StatefulWidget {
   const GeneralMapScreen({super.key});
@@ -62,6 +63,16 @@ class _GeneralMapScreenState extends State<GeneralMapScreen> {
       appBar: CustomAppBar(
         title: 'Map Explorer',
         automaticallyImplyLeading: false,
+      ),
+      bottomNavigationBar: CustomBottomBar(
+        currentIndex: 2,
+        onTap: (index) {
+          if (index != 2) {
+            CustomBottomBar.navigateToIndex(context, index);
+          }
+        },
+        variant: BottomBarVariant.material3,
+        showLabels: true,
       ),
       body: Stack(
         children: [
